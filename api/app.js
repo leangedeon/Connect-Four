@@ -3,8 +3,10 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var mongoose = require('mongoose');
 
-var indexRouter = require('./routes/index');
+const mongo_uri_connect = 'mongodb+srv://freelance:freelance2021@clusterfreelance.anog7.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+const indexRouter = require('./routes/index');
 
 var app = express();
 
@@ -27,7 +29,18 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.json(err);
 });
+
+mongoose.connect(mongo_uri_connect, 
+  { useNewUrlParser: true, useFindAndModify: false, useUnifiedTopology: true }
+);
+
+mongoose.connection
+  .on('connected', () => console.log('mongo connected'))
+  .on('error', () => {
+      throw new Error("unable to connect to database: ", mongo_uri_connect);
+  });
+
 
 module.exports = app;
