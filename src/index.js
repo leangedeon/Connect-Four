@@ -1,24 +1,27 @@
 import React from "react";
 import ReactDom from "react-dom";
-import { Dashboard } from "./containers/Dashboard";
+import Dashboard from "./components/Dashboard/index";
 import 'bootswatch/dist/journal/bootstrap.min.css';
+import { Provider } from 'react-redux';
+import store from './store';
+import {
+    HashRouter, Route, Switch,
+  } from 'react-router-dom';
 
 const App = () => {
     return (
-        <>
-        <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-            <div className="container-fuild">
-                <a href="/" className="navbar-brand">
-                    Connect Four
-                </a>
-            </div>
-        </nav>
-        <main className="bg">
-            <div className="container">
-                <Dashboard />
-            </div>
-        </main>
-        </>
+        <Provider store={store}>
+            <HashRouter>
+                <Switch>
+                    <Route path="/player">
+                        <Dashboard player={1} />
+                    </Route>
+                    <Route path="/guest">
+                        <Dashboard player={2} />
+                    </Route>
+                </Switch>
+            </HashRouter>
+        </Provider>
     )
 }
 

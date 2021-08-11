@@ -7,5 +7,5 @@ export const Circle = ({color}) => {
 }
 
 Circle.propTypes = {
-    color: PropTypes.string.isRequired
+    color: PropTypes.object
 }
