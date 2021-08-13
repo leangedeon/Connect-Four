@@ -8,8 +8,7 @@ function reducer(state = {}, { type, payload }) {
 
   switch (type) {
     case SET_PLAYER:
-      var game = {...state.game, player:payload};
-      return { ...state, game: game };
+      return { ...state, player: payload };
 
     case SET_GAME:
       return { ...state, game: payload, gameId: payload._id };

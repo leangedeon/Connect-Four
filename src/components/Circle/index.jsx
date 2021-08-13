@@ -7,5 +7,5 @@ export const Circle = ({color}) => {
 }
 
 Circle.propTypes = {
-    color: PropTypes.object
+    color: PropTypes.number
 }

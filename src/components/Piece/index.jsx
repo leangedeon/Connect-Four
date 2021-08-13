@@ -14,5 +14,5 @@ export const Piece = ({piece}) => {
 
 
 Piece.propTypes = {
-    piece: PropTypes.object
+    piece: PropTypes.number
 }

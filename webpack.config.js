@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const DotEnv = require('dotenv-webpack');
 
 const htmlPlugin = new HtmlWebpackPlugin({
     template: './src/index.html',
@@ -26,5 +27,6 @@ module.exports = {
         proxy: {
             '/api': 'http://localhost:3001/', 
         },
-    }
+    },
+    plugins: [htmlPlugin, new DotEnv()]
 }

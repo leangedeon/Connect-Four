@@ -82,7 +82,7 @@ Dashboard.propTypes = {
     gameId: PropTypes.string,
     setGame: PropTypes.func.isRequired,    
     game: PropTypes.shape({
-        dashboard: PropTypes.object,
+        dashboard: PropTypes.arrayOf(PropTypes.object),
         state: PropTypes.string
       })
 }

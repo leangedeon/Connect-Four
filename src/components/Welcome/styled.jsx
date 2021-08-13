@@ -3,7 +3,8 @@ import styled from 'styled-components'
 export const StyledWelcome = styled.div`
     width: 400px;
     margin: 0 auto;
-    top: 200px;
+    top: 150px;
+    position: relative;
 `;
 
 export const StyledButton = styled.div`

@@ -1,8 +1,15 @@
 const GameModel      = require('../models/game.model');
+const constants   = require('../constants');
 const self = {};
 
 self.setGameForPlay = async (game) => {
+
     try {
+        var gameAvailable = await GameModel.find({ state:constants.STATE.INITIAL }).exec();
+        if (gameAvailable.length) {
+            return gameAvailable.shift();    
+        }
+
         const newGame = new GameModel(game);
         const saveGame = await newGame.save();
         return saveGame;
@@ -49,7 +56,6 @@ self.updateGame = async (game_id, game) => {
         .exec();
         updatedGame.dashboard = game.dashboard;
         updatedGame.state = game.state;
-        updatedGame.player = game.player;
         updatedGame.next = game.next;
         updatedGame.save();
         return updatedGame;

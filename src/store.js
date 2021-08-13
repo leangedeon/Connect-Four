@@ -19,10 +19,10 @@ const initialState = {
             "columns": [null, null, null, null, null, null, ]
         }],
     "state": "INITIAL",
-    "player": null
   },
   loading: false,
   gameId: null,
+  player: null,
 };
 
 const store = createStore(reducer, initialState, composeWithDevTools(applyMiddleware(logger)));

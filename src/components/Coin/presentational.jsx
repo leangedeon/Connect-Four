@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { StyledButton } from './styled.jsx';
+const PATH_API = process.env.PATH_API;
 
-export const Coin = ({position, game, gameId, setLoading, setGame}) => {
-    const PATH_API = 'http://localhost:3001';
+export const Coin = ({position, gameId, setLoading, setGame, player}) => {
 
     const persistMovement = async (gameId, position, player) => {
         const options = {  headers: { 'Content-Type': 'application/json' }, method: 'POST', body: JSON.stringify({'player': player})};
@@ -28,16 +28,13 @@ export const Coin = ({position, game, gameId, setLoading, setGame}) => {
     }
 
     const makeMovement = async (gameId, position, player) => {
-
         setLoading(true);
 
-        const persistedData = await persistMovement(gameId, position, player);
-        
-        const updatedGame = await getGame(gameId);
+        const updatedGame = await persistMovement(gameId, position, player);
 
         setGame(updatedGame);
 
-        const turn = await checkTurn(gameId, player);
+        await checkTurn(gameId, player);
         setLoading(false);
 
         const updatedGameAfterPlay = await getGame(gameId);
@@ -46,7 +43,7 @@ export const Coin = ({position, game, gameId, setLoading, setGame}) => {
     }
 
     return (
-        <StyledButton onClick={() => makeMovement(gameId, position, game.player)}>
+        <StyledButton onClick={() => makeMovement(gameId, position, player)}>
             <button type="button" className="btn btn-primary">Put Coin</button>
         </StyledButton>
     )
@@ -54,10 +51,8 @@ export const Coin = ({position, game, gameId, setLoading, setGame}) => {
 
 Coin.propTypes = {
     position: PropTypes.number.isRequired,
-    gameId: PropTypes.string.isRequired,
+    gameId: PropTypes.string,
     setGame: PropTypes.func,
     setLoading: PropTypes.func,
-    game: PropTypes.shape({
-        player: PropTypes.number
-      })
+    player: PropTypes.number
 }

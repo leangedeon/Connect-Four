@@ -17,7 +17,7 @@ router.post("/game/:game_id", (req, res, next) => controllers.api.updateGame(req
 // Add a move to an existing Game
 router.post("/game/:game_id/move/:move", (req, res) => controllers.api.setMoveForGame(req, res));
 
-// Create a new Game
+// Delete all Games
 router.delete("/games", (req, res) => controllers.api.deleteGames(req, res));
 
 module.exports = router;

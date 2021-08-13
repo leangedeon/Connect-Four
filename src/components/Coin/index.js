@@ -6,7 +6,6 @@ import {
 } from '../../actions';
 
 const mapStateToProps = (state) => ({
-    game: state.game,
     loading: state.loading,
     gameId: state.gameId,
     player: state.player,
