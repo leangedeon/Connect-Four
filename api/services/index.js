@@ -12,9 +12,19 @@ self.setGameForPlay = async (game) => {
     }
 }
 
-self.getGameForPlay = async (state, players) => {
+self.deleteGames = async () => {
     try {
-        const game = await GameModel.find({ state: state, players:players }).exec();
+        const response = await GameModel.deleteMany().exec();
+        return response;
+    } catch (err) {
+        console.log('err' + err);
+        return err;
+    }
+}
+
+self.getGameForPlay = async (state) => {
+    try {
+        const game = await GameModel.find({ state: state }).exec();
         return game.shift();
     } catch (err) {
         console.log('err' + err);
@@ -39,8 +49,22 @@ self.updateGame = async (game_id, game) => {
         .exec();
         updatedGame.dashboard = game.dashboard;
         updatedGame.state = game.state;
-        updatedGame.players = game.players;
+        updatedGame.player = game.player;
         updatedGame.next = game.next;
+        updatedGame.save();
+        return updatedGame;
+    } catch (err) {
+        console.log('err' + err);
+        return err;
+    }
+}
+
+self.updateState = async (state) => {
+    try {
+        var updatedGame = await GameModel.findOne()
+        .where("_id").in([game_id])
+        .exec();
+        updatedGame.state = state;
         updatedGame.save();
         return updatedGame;
     } catch (err) {

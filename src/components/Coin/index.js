@@ -1,15 +1,20 @@
 import { connect } from 'react-redux';
 import { Coin } from './presentational.jsx';
 import {
-    setMove,
+    setLoading,
+    setGame,
 } from '../../actions';
 
 const mapStateToProps = (state) => ({
-  game: state.game,
+    game: state.game,
+    loading: state.loading,
+    gameId: state.gameId,
+    player: state.player,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    setMove: (position, player) => dispatch(setMove(position, player))
+    setLoading: (loading) => dispatch(setLoading(loading)),
+    setGame: (game) => dispatch(setGame(game)),
 });
 
 export default connect(

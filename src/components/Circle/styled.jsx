@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
 export const CircleDiv = styled.div`
-    height:70px;
-    width:70px;
+    height:50px;
+    width:50px;
     background:#E76AFA;
     -moz-border-radius:50px;
     -webkit-border-radius:50px;

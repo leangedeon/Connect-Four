@@ -4,9 +4,9 @@ var Schema = mongoose.Schema;
 
 var gameSchema = new Schema({
     'game_id': {type:Schema.Types.ObjectId},
-    'dashboard': {type:Array, required:true},
+    'dashboard': {type:Object, required:true},
     'state': {type:String, required:true},
-    'players': {type:Number, required:true},
+    'player': {type:Number, required:true},
     'next': {type:Number, required:true}
 });
 

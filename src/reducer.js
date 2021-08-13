@@ -2,6 +2,7 @@ import {
   SET_GAME,
   SET_MOVE,
   SET_PLAYER,
+  SET_LOADING,
 } from './actions';
 
 function reducer(state = {}, { type, payload }) {
@@ -12,7 +13,10 @@ function reducer(state = {}, { type, payload }) {
       return { ...state, game: game };
 
     case SET_GAME:
-      return { ...state, game: payload };
+      return { ...state, game: payload, gameId: payload._id };
+      
+    case SET_LOADING: 
+      return { ...state, loading: payload };
       
     case SET_MOVE:
       
