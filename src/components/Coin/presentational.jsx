@@ -55,7 +55,6 @@ export const Coin = ({position, game, gameId, setLoading, setGame}) => {
 Coin.propTypes = {
     position: PropTypes.number.isRequired,
     gameId: PropTypes.string.isRequired,
-    setMove: PropTypes.func,
     setGame: PropTypes.func,
     setLoading: PropTypes.func,
     game: PropTypes.shape({

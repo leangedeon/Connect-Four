@@ -4,6 +4,7 @@ import { Row } from "../../components/Row/index.jsx";
 import { ListCoins } from "../../components/ListCoins/index.jsx";
 import { reverseObject } from '../../utils';
 import { Notification } from '../Notification/index.jsx';
+import { Status } from '../Status/index.jsx';
 const PATH_API = 'http://localhost:3001';
 
 export const Dashboard = ({game, gameId, player, setPlayer, loading, setGame}) => {
@@ -53,6 +54,7 @@ export const Dashboard = ({game, gameId, player, setPlayer, loading, setGame}) =
                         <h3>Welcome player #{player}</h3>
                         <p className="text-secondary">Game Id {gameId}</p>
                     </div>
+                    <Status gameState={game.state}/>
                     
                     <div>
 
@@ -80,6 +82,7 @@ Dashboard.propTypes = {
     gameId: PropTypes.string,
     setGame: PropTypes.func.isRequired,    
     game: PropTypes.shape({
-        dashboard: PropTypes.object
+        dashboard: PropTypes.object,
+        state: PropTypes.string
       })
 }

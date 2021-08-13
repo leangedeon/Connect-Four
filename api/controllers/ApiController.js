@@ -153,7 +153,6 @@ module.exports = class Api {
             winner = checkColumnsGame(game);
             return winner;
         }
-
 		return false;
 	}
 

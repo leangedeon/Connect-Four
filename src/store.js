@@ -18,7 +18,7 @@ const initialState = {
         }, {
             "columns": [null, null, null, null, null, null, ]
         }],
-    "state": "INICIAL",
+    "state": "INITIAL",
     "player": null
   },
   loading: false,
