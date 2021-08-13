@@ -92,9 +92,72 @@ module.exports = class Api {
 		return res.json(response);
     }
 
+	checkRowsGame(game) {
+        let pointForRow = 0;
+        let winner = 0;
+
+        for (var k = 0; k < game.dashboard[0].columns.length; k++) {
+
+            for (var i = 0; i < game.dashboard.length-1; i++) {
+                let row = game.dashboard;
+                
+                if (row[i].columns[k] === row[i+1].columns[k]) {
+                    pointForRow++;
+                    winner = row[i].columns[k];
+                } else {
+                    pointForRow = 0;
+                    winner = 0;
+                }
+                
+                if (pointForRow === 3) {
+                    return winner;
+                }
+            }
+        }
+
+        return false;
+    }
+
+	checkColumnsGam(game) {
+        let pointForColumn = 0;
+        let winner = 0;
+
+        for (var i = 0; i < game.dashboard.length; i++) {
+            let row = game.dashboard;
+            
+            for (var k = 0; k < row.length; k++) {
+                
+                if (row[i].columns[k] === row[i].columns[k+1]) { 
+                    pointForColumn++;
+                    winner = row[i].columns[k];
+                } else {
+                    pointForColumn = 0;
+                    winner = 0;
+                }
+
+                if (pointForColumn === 3) {
+                    return winner;
+                }
+            }
+        }
+
+        return false;
+    }
+
 	checkWinner(game) {
+		let winner = checkRowsGame(game);
+
+        if(winner) {
+            return winner;
+        } else {
+            winner = checkColumnsGame(game);
+            return winner;
+        }
+
 		return false;
 	}
+
+
 }
 
 
