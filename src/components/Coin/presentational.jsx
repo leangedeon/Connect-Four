@@ -22,7 +22,7 @@ export const Coin = ({position, gameId, setLoading, setGame, player}) => {
     const checkTurn = async (gameId, player) => {
         const data = await getGame(gameId);
 
-        if (data.next !== player) {
+        if (data.next !== player && data.state !== 'DONE') {
             return checkTurn(gameId, player);
         }
     }
@@ -50,9 +50,11 @@ export const Coin = ({position, gameId, setLoading, setGame, player}) => {
 }
 
 Coin.propTypes = {
-    position: PropTypes.number.isRequired,
+    position: PropTypes.number,
     gameId: PropTypes.string,
     setGame: PropTypes.func,
     setLoading: PropTypes.func,
     player: PropTypes.number
 }
+
+

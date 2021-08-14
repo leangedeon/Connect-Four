@@ -114,15 +114,15 @@ module.exports = class Api {
             for (var i = 0; i < game.dashboard.length-1; i++) {
                 let row = game.dashboard;
                 
-                if (row[i].columns[k] === row[i+1].columns[k]) {
+                if (row[i].columns[k] !== null && row[i].columns[k] === row[i+1].columns[k]) {
                     pointForRow++;
                     winner = row[i].columns[k];
                 } else {
                     pointForRow = 0;
                     winner = 0;
                 }
-                
-                if (pointForRow === 3) {
+
+				if (pointForRow === 3) {
                     return winner;
                 }
             }
@@ -140,7 +140,7 @@ module.exports = class Api {
             
             for (var k = 0; k < row.length; k++) {
                 
-                if (row[i].columns[k] === row[i].columns[k+1]) { 
+                if (row[i].columns[k] !== null && row[i].columns[k] === row[i].columns[k+1]) {
                     pointForColumn++;
                     winner = row[i].columns[k];
                 } else {

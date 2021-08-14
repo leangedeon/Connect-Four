@@ -1,0 +1,140 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dashboard Dashboard when we have loading on false should match snapshot 1`] = `
+<div>
+  <nav
+    className="navbar navbar-expand-lg navbar-dark bg-primary"
+  >
+    <div
+      className="container-fuild"
+    >
+      <a
+        className="navbar-brand"
+        href="/"
+      >
+        Connect Four
+      </a>
+    </div>
+  </nav>
+  <main
+    className="bg"
+  >
+    <div
+      className="container"
+    >
+      <div
+        className="row"
+      >
+        <h3>
+          Welcome player #
+          1
+        </h3>
+        <p
+          className="text-secondary"
+        >
+          Game Id 
+        </p>
+      </div>
+      <Status
+        gameState="INITIAL"
+      />
+      <div>
+        <ListCoins
+          quantity={6}
+          show="INITIAL"
+        />
+        <Row
+          key="row_0"
+          rowData={
+            Object {
+              "columns": Array [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+              ],
+            }
+          }
+        />
+        <Row
+          key="row_1"
+          rowData={
+            Object {
+              "columns": Array [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+              ],
+            }
+          }
+        />
+        <Row
+          key="row_2"
+          rowData={
+            Object {
+              "columns": Array [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+              ],
+            }
+          }
+        />
+        <Row
+          key="row_3"
+          rowData={
+            Object {
+              "columns": Array [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+              ],
+            }
+          }
+        />
+        <Row
+          key="row_4"
+          rowData={
+            Object {
+              "columns": Array [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+              ],
+            }
+          }
+        />
+        <Row
+          key="row_5"
+          rowData={
+            Object {
+              "columns": Array [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+              ],
+            }
+          }
+        />
+      </div>
+    </div>
+  </main>
+</div>
+`;

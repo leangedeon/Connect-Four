@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Coin should match snapshot 1`] = `
+<styled.div
+  onClick={[Function]}
+>
+  <button
+    className="btn btn-primary"
+    type="button"
+  >
+    Put Coin
+  </button>
+</styled.div>
+`;

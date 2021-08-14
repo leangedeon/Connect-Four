@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Status should match snapshot 1`] = `
+<styled.div>
+  <div
+    className="d-grid gap-2"
+  >
+    <button
+      className="btn btn-primary"
+      type="button"
+    >
+      State: 
+    </button>
+  </div>
+</styled.div>
+`;

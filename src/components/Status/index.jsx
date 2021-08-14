@@ -23,5 +23,9 @@ export const Status = ({gameState}) => {
 }
 
 Status.propTypes = {
-    gameState: PropTypes.string.isRequired,
+    gameState: PropTypes.string,
 }
+
+Status.defaultProps = {
+    gameState: '',
+};

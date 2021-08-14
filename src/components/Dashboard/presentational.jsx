@@ -5,9 +5,10 @@ import { ListCoins } from "../../components/ListCoins/index.jsx";
 import { reverseObject } from '../../utils';
 import { Notification } from '../Notification/index.jsx';
 import { Status } from '../Status/index.jsx';
-const PATH_API = 'http://localhost:3001';
+const PATH_API = process.env.PATH_API;
 
 export const Dashboard = ({game, gameId, player, setPlayer, loading, setGame}) => {
+
     const gameReversed = reverseObject(game.dashboard);
 
     const createGame = async () => {
@@ -59,7 +60,9 @@ export const Dashboard = ({game, gameId, player, setPlayer, loading, setGame}) =
                     <div>
 
                         {
-                            (loading) ? <Notification /> : <ListCoins quantity={6} />
+                            (game.state !== 'DONE') ? 
+                                (loading) ? <Notification show={game.state} /> : <ListCoins quantity={6} show={game.state} />
+                            : null
                         }
 
                         {
@@ -76,13 +79,23 @@ export const Dashboard = ({game, gameId, player, setPlayer, loading, setGame}) =
 }
 
 Dashboard.propTypes = {
-    player: PropTypes.number.isRequired,
-    loading: PropTypes.bool.isRequired,
-    setPlayer: PropTypes.func.isRequired,
+    player: PropTypes.number,
+    loading: PropTypes.bool,
+    setPlayer: PropTypes.func,
     gameId: PropTypes.string,
-    setGame: PropTypes.func.isRequired,    
+    setGame: PropTypes.func,    
     game: PropTypes.shape({
         dashboard: PropTypes.arrayOf(PropTypes.object),
         state: PropTypes.string
       })
 }
+
+
+Dashboard.defaultProps = {
+    player: null,
+    loading: false,
+    gameId: null,
+    setPlayer: null,
+    setGame: null,
+    game: {}
+};

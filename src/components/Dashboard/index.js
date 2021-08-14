@@ -5,13 +5,13 @@ import {
   setGame,
 } from '../../actions';
 
-const mapStateToProps = (state) => ({
+export const mapStateToProps = (state) => ({
   game: state.game,
   gameId: state.gameId,
   loading: state.loading,
 });
 
-const mapDispatchToProps = (dispatch) => ({
+export const mapDispatchToProps = (dispatch) => ({
   setPlayer: (player) => dispatch(setPlayer(player)),
   setGame: (game) => dispatch(setGame(game)),
 });
